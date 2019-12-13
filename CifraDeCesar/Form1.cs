@@ -20,17 +20,29 @@ namespace CifraDeCesar
         private void BtnCript_Click(object sender, EventArgs e)
         {
             Txt_ResultadoCRIPT.Text = String.Empty;
+            var Palavras = TxtMensagemCript.Text.Split(' ');
 
-            for (int i = 0; i < TxtMensagemCript.Text.Length; i++)
+            foreach (string txt in Palavras)
             {
-                int TabelaASCII = (int)TxtMensagemCript.Text[i];
-                int CriptoGrafado = TabelaASCII + Byte.Parse(TxtChaveCript.Text);
-                
+                for (int i = 0; i < txt.Length; i++)
+                {
+                    int TabelaASCII = (int)txt[i];
 
+                    for (int cont = 0; cont < int.Parse(TxtChaveCript.Text); ++cont)
+                    {
 
-                Txt_ResultadoCRIPT.Text += Char.ConvertFromUtf32(CriptoGrafado);
-                
+                        TabelaASCII = TabelaASCII < 122 ? TabelaASCII + 1 : 97;
+
+                    }
+
+                    Txt_ResultadoCRIPT.Text += Char.ConvertFromUtf32(TabelaASCII);
+
+                }
+                Txt_ResultadoCRIPT.Text += " ";
             }
+
+
+            Txt_ResultadoCRIPT.Text = Txt_ResultadoCRIPT.Text.Trim();
 
         }
 
@@ -38,16 +50,28 @@ namespace CifraDeCesar
         {
             Txt_ResultadoDECRIPT.Text = String.Empty;
 
-            for (int i = 0; i < TxtMensagemDECript.Text.Length; i++)
+            var Palavras = TxtMensagemDECript.Text.Split(' ');
+
+            foreach (string txt in Palavras)
             {
-                int TabelaASCII = (int)TxtMensagemDECript.Text[i];
-                int CriptoGrafado = TabelaASCII - Byte.Parse(TxtChaveDECRIPT.Text);
+                for (int i = 0; i < txt.Length; i++)
+                {
+                    int TabelaASCII = (int)txt[i];
 
+                    for (int cont = 0; cont < int.Parse(TxtChaveDECRIPT.Text); ++cont)
+                    {
 
+                        TabelaASCII = TabelaASCII > 97 ? TabelaASCII - 1 : 122;
 
-                Txt_ResultadoDECRIPT.Text += Char.ConvertFromUtf32(CriptoGrafado);
+                    }
 
+                    Txt_ResultadoDECRIPT.Text += Char.ConvertFromUtf32(TabelaASCII);
+                }
+                Txt_ResultadoDECRIPT.Text += " ";
             }
+            Txt_ResultadoCRIPT.Text = Txt_ResultadoCRIPT.Text.Trim();
+
+
         }
     }
 }
