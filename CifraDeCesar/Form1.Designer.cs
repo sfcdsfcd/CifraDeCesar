@@ -161,7 +161,7 @@
             // 
             this.TxtChaveDECRIPT.BackColor = System.Drawing.SystemColors.Control;
             this.TxtChaveDECRIPT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtChaveDECRIPT.ForeColor = System.Drawing.SystemColors.Control;
+            this.TxtChaveDECRIPT.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TxtChaveDECRIPT.Location = new System.Drawing.Point(340, 55);
             this.TxtChaveDECRIPT.Name = "TxtChaveDECRIPT";
             this.TxtChaveDECRIPT.Size = new System.Drawing.Size(100, 20);
